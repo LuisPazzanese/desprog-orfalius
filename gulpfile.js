@@ -44,6 +44,9 @@ function copyAssets() {
 
 
 function watch() {
+    browserSync.init({
+        server: { baseDir: 'site' }
+    });
     gulp.watch([TEMPLATE, SOURCE, SNIPPETS, IMAGES], compile).on('change', browserSync.reload);
     gulp.watch(STATIC, copyStatic).on('change', browserSync.reload);
     gulp.watch(ASSETS, copyAssets).on('change', browserSync.reload);

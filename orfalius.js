@@ -229,7 +229,9 @@ function processImage(element, prefix) {
         src = src.slice(0, match.index);
     }
     if (!src.startsWith('..')) {
-        src = `img/${src}`;
+        if (!src.startsWith('img/')) {
+            src = `img/${src}`;
+        }
         if (prefix === '/') {
             src = `/${src}`;
         }
