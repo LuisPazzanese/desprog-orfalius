@@ -55,6 +55,12 @@ function watch() {
 
 gulp.task('clean', clean);
 
+gulp.task('build', gulp.parallel(
+    compile,
+    copyStatic,
+    copyAssets
+));
+
 gulp.task('default', gulp.series(
     gulp.parallel(
         compile,
